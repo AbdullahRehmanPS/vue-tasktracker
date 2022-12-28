@@ -8,9 +8,6 @@
   </header>
 </template>
 
-
-
-
 <script>
 import Button from "@/components/Button";
 export default {
@@ -24,9 +21,6 @@ export default {
   }
 }
 </script>
-
-
-
 
 <style scoped>
 header {

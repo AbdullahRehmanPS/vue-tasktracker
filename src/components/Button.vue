@@ -1,11 +1,10 @@
 <template>
 <!--  <button class="btn">Add Task</button>-->
-  <button v-on:click="onclick()" v-bind:style="{background: color}" class="btn">{{ text }}</button>
 <!--  instead of v-bind: we can only write : & in place of v-on: we can write @ -->
+  <button v-on:click="onclick()" v-bind:style="{background: color}" class="btn">{{ text }}</button>
 </template>
 
 <script>
-
 export default {
   name: 'Button',
   props: {
@@ -18,5 +17,4 @@ export default {
     }
   }
 }
-
 </script>
