@@ -5,6 +5,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'Button',
   props: {
@@ -13,8 +14,9 @@ export default {
   },
   methods: {
     onclick() {
-
+      console.log('clicked')
     }
   }
 }
+
 </script>
