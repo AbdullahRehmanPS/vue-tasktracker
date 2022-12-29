@@ -1,7 +1,7 @@
 <template>
   <div v-bind:key="task.id" v-for="task in tasks">
 <!--    <h3>{{task.text}}</h3>-->
-    <Task v-bind:task="task"/>
+    <Task @toggle-reminer="$emit('toggle-reminder', task.id)" @delete-task="$emit('delete-task', task.id)" v-bind:task="task"/>
   </div>
 </template>
 
@@ -13,5 +13,6 @@ export default {
   props: {
     tasks: Array
   },
+  emits: ['delete-task','toggle-reminder']
 }
 </script>

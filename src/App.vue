@@ -2,18 +2,29 @@
   <div class="container">
 <!--    <h1>Hello World</h1>-->
     <Header title="Task Tracker"/>
-    <Tasks v-bind:tasks="tasks" />
+    <AddTask />
+    <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" v-bind:tasks="tasks" />
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header";
 import Tasks from "@/components/Tasks";
+import AddTask from "@/components/AddTask";
 export default {
   name: 'App',
   components: {
     Header,
-    Tasks
+    Tasks,
+    AddTask
+  },
+  methods: {
+    deleteTask(id) {
+      this.tasks = this.tasks.filter((task) => task.id !== id)
+    },
+    toggleReminder(id) {
+      this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
+    }
   },
   data() {
     return {
@@ -32,13 +43,13 @@ export default {
         id: 2,
         text: 'Meeting at School',
         day: 'March 2nd at 2:30pm',
-        reminder: true
+        reminder: false
       },
       {
         id: 3,
         text: 'Meeting at restaurant',
         day: 'March 2nd at 8:30pm',
-        reminder: false
+        reminder: true
       }
     ]
   }
